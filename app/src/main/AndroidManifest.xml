@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ellipsonic.www.student_tracking">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="net.dinglisch.android.tasker.PERMISSION_RUN_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".Student_Tracking"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="SmartStudent"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.activity.NewMainNavigationActivity"
+            android:label="@string/title_activity_main_navigation"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.activity.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".ui.activity.BeaconActionActivity"
+            android:label="@string/title_activity_beacon" />
+
+        <receiver android:name=".receiver.BeaconRegionReceiver">
+            <intent-filter>
+                <action android:name="${applicationId}.action.NOTIFY_BEACON_ENTERS_REGION" />
+                <action android:name="${applicationId}.action.NOTIFY_BEACON_LEAVES_REGION" />
+                <action android:name="${applicationId}.action.NOTIFY_BEACON_NEAR_YOU_REGION" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.BeaconAlertReceiver">
+            <intent-filter>
+                <action android:name="${applicationId}.action.ALARM_NOTIFICATION_SHOW" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.LocationReceiver">
+            <intent-filter>
+                <action android:name="${applicationId}.action.GET_CURRENT_LOCATION" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBrE6u8-tY7V0A-Li2vmLz6IX5aCabudiE" />
+
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:label="SmartStudent">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.WelcomePage"
+            android:label="@string/title_activity_welcome_page" />
+        <activity
+            android:name=".ui.activity.MapsActivity"
+            android:label="Map_Page"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.activity.RegisterActivity"
+            android:label="Beacon_Register"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.Login"
+            android:label="Login"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.activity.RegisterUser"
+            android:label="Register" />
+        //android:label="Home_Beacon"
+        <activity android:name=".ui.activity.Card_view" />
+        <activity android:name=".ui.activity.DatabaseHelper" />
+        <activity android:name=".ui.activity.DataMainActivity" />
+        <activity android:name=".ui.activity.GoogleMainActivity" />
+        <activity
+            android:name=".ui.activity.MapNavigationActivty"
+            android:label="@string/title_activity_map_navigation_activty"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.HomeBeaconNavigationActivity"
+            android:label="@string/title_activity_home_beacon_navigation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activity.MapRouteActivity">
+        </activity>
+    </application>
+
+</manifest>

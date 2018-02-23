@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "231299447879",
+    "project_id": "smartnew-174908"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:231299447879:android:64c86ccc86215405",
+        "android_client_info": {
+          "package_name": "com.ellipsonic.www.student_tracking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "231299447879-tnbl8ivpcus57snbe9npj79nqrnclj9a.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "231299447879-o02dt72nooepltc7jkt8m5ak3jvsa70e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ellipsonic.www.student_tracking",
+            "certificate_hash": "c3146f906c2398ebe2d9a307435b031a2b4e524d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmGs_ll5zxzzx-WTENs-E_53UIMf5hpKY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
