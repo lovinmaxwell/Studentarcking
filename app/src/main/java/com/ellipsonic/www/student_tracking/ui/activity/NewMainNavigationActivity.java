@@ -338,12 +338,12 @@ public class NewMainNavigationActivity extends BaseActivity implements Navigatio
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        switch (id) {
+//        switch (id) {
 //            case R.id.nav_scan_around:
 //                launchScanBeaconView();
 //                break;
-
-        }
+//
+//        }
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
