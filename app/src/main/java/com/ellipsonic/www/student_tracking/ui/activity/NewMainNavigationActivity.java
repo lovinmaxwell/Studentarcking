@@ -21,81 +21,61 @@ package com.ellipsonic.www.student_tracking.ui.activity;
  */
 
 
+import android.annotation.TargetApi;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-        import android.annotation.TargetApi;
-        import android.app.Dialog;
-        import android.content.Context;
-        import android.content.DialogInterface;
-        import android.content.Intent;
-        import android.content.pm.PackageManager;
-        import android.os.Bundle;
-        import android.support.annotation.NonNull;
-        import android.support.design.widget.FloatingActionButton;
-        import android.support.design.widget.NavigationView;
-        import android.support.v4.app.Fragment;
-        import android.support.v4.app.FragmentManager;
-        import android.support.v4.view.GravityCompat;
-        import android.support.v4.widget.DrawerLayout;
-        import android.support.v7.app.ActionBarDrawerToggle;
-        import android.support.v7.widget.Toolbar;
-        import android.util.Log;
-        import android.view.MenuItem;
-        import android.view.View;
-        import android.widget.Button;
-        import android.widget.Toast;
+import com.ellipsonic.www.student_tracking.R;
+import com.ellipsonic.www.student_tracking.Student_Tracking;
+import com.ellipsonic.www.student_tracking.data.NewDbStoreService;
+import com.ellipsonic.www.student_tracking.model.TrackedBeacon;
+import com.ellipsonic.www.student_tracking.ui.fragment.DetectedBeaconsFragment;
+import com.ellipsonic.www.student_tracking.ui.fragment.ScanFragment;
+import com.ellipsonic.www.student_tracking.util.Constants;
+import com.ellipsonic.www.student_tracking.util.DialogBuilder;
 
-        import com.android.volley.Request;
-        import com.android.volley.RequestQueue;
-        import com.android.volley.Response;
-        import com.android.volley.VolleyError;
-        import com.android.volley.toolbox.StringRequest;
-        import com.android.volley.toolbox.Volley;
-        import com.ellipsonic.www.student_tracking.Student_Tracking;
-        import com.ellipsonic.www.student_tracking.R;
-        import com.ellipsonic.www.student_tracking.data.NewDbStoreService;
-        import com.ellipsonic.www.student_tracking.model.TrackedBeacon;
-        import com.ellipsonic.www.student_tracking.ui.fragment.DetectedBeaconsFragment;
-        import com.ellipsonic.www.student_tracking.ui.fragment.ScanFragment;
-        import com.ellipsonic.www.student_tracking.ui.fragment.TrackedBeaconsFragment;
-        import com.ellipsonic.www.student_tracking.util.Constants;
-        import com.ellipsonic.www.student_tracking.util.DialogBuilder;
+import org.altbeacon.beacon.BeaconManager;
 
-        import org.altbeacon.beacon.BeaconManager;
+import java.util.List;
 
-        import java.util.HashMap;
-        import java.util.List;
-        import java.util.Map;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-        import butterknife.Bind;
-        import butterknife.ButterKnife;
-        import butterknife.OnClick;
-
-        import static com.ellipsonic.www.student_tracking.model.DetectedBeacon.Major;
-        import static com.ellipsonic.www.student_tracking.model.DetectedBeacon.Minor;
-        import static com.ellipsonic.www.student_tracking.model.DetectedBeacon.UUID;
-        import static com.ellipsonic.www.student_tracking.model.DetectedBeacon.detectedMacId;
+import static com.ellipsonic.www.student_tracking.model.DetectedBeacon.detectedMacId;
 
 public class NewMainNavigationActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
     public static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
+    private static final String url = "http://wisdomkraft.com/wisdomkraft.com/prudence/IoT/StudentTracking/Data_in_json.php";
     NewDbStoreService newDbStoreService;
-
     @Bind(R.id.fab)
     FloatingActionButton fab;
-
     @Bind(R.id.drawer_layout)
     DrawerLayout drawer;
-
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-
     @Bind(R.id.nav_view)
     NavigationView navigationView;
-
     @Bind(R.id.button)
     Button button;
-    private static final String url = "http://wisdomkraft.com/wisdomkraft.com/prudence/IoT/StudentTracking/Data_in_json.php";
-
     String text="";
 
     String s_name,s_school,s_age,s_std;
@@ -361,6 +341,7 @@ public class NewMainNavigationActivity extends BaseActivity implements Navigatio
 
             }
         }
+        //
 
     }
 
