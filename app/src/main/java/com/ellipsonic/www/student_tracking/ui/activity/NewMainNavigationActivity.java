@@ -339,9 +339,9 @@ public class NewMainNavigationActivity extends BaseActivity implements Navigatio
         int id = item.getItemId();
 
         switch (id) {
-            case R.id.nav_scan_around:
-                launchScanBeaconView();
-                break;
+//            case R.id.nav_scan_around:
+//                launchScanBeaconView();
+//                break;
 
         }
 
